@@ -1,3 +1,7 @@
+<app-global-error></app-global-error>
+<h1 class="text-center font-bold mb-2 text-lg"> {{ title | titlecase }} </h1>
+
 <div class="max-w-2xl container mx-auto pt-5 mt-[50px]">
-    <app-product *ngFor="let product of products" [product]="product"></app-product>
+    <p *ngIf="loading" class="text-center">Loading...</p>
+    <app-product *ngFor="let product of products$ | async" [product]="product"></app-product>
 </div>
